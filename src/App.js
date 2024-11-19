@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useFetch } from './useFetch';
+import { fetchData } from './fetchData';
+import { Suspense } from 'react';
+import axios from 'axios';
+import Componente from './componente';
 
+
+const apiData = fetchData('getUser')
 function App() {
+
+  // const {data, loading, error, handleCancelRequest} = useFetch('getUser');
+  
+  const data = apiData.read();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Data from Laravel API:</h1>
+      {/* <Componente
+        data={data}
+        loading={loading}
+        error={error}
+        handleCancelRequest={handleCancelRequest}
+      /> */}
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <ul className="card"></ul>
+      </Suspense>
     </div>
   );
 }

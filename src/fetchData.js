@@ -1,6 +1,6 @@
 import React from 'react';
 
-function getSuspenders(promise) {
+function getSuspender(promise) {
     let status = 'pending';
     let response;
 
@@ -26,10 +26,10 @@ function getSuspenders(promise) {
         }
     }
 
-    return {read};
+    return { read };
 }
 
-const FetchData = (url) => {
+export function fetchData(url) {
     const promise = fetch(`http://localhost:8000/api/${url}`)
         .then((response) => response.json())
         .then((data) => data);
@@ -38,4 +38,3 @@ const FetchData = (url) => {
     return getSuspender(promise);
 }
 
-export default FetchData;

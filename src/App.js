@@ -9,7 +9,7 @@ const apiData = fetchData('getUser')
 function App() {
 
   // const {data, loading, error, handleCancelRequest} = useFetch('getUser');
-  
+
   const data = apiData.read();
   return (
     <div className="App">
@@ -22,7 +22,11 @@ function App() {
       /> */}
 
       <Suspense fallback={<div>Loading...</div>}>
-        <ul className="card"></ul>
+        <ul className="card">
+          {data?.users?.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
       </Suspense>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/contratos.css'
-import Title from '../componentes/title';
+import Title from '../components/title';
 const ContratosView = () => {
     return (
         <div className={'ContratosView'}>

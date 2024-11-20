@@ -7,18 +7,12 @@
 
 .titleText {
     min-width: 50px;
-    background-color: blue;
-    border-bottom: 1px solid #000;
+    border-bottom: 3px solid #31293F;
+    padding: 0 1em 0 1em ;
 }
 
 .textTitle {
+    color: #7667b8;
     margin: 0;
-}
-
-.lineGlobal {
-    width: 100%;
-    height: 1px;
-    background-color: #ccc;
-    margin: 10px 0;
-    align-items: center;
+    letter-spacing: 2px;
 }

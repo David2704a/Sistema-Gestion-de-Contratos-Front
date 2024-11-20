@@ -6,7 +6,7 @@ import './App.css';
 import { Link, Route, Routes } from 'react-router-dom';
 import HomeView from './vistas/HomeView';
 import UserView from './vistas/UserView';
-import ContratosView from './vistas/ContratosView';
+import ContractsView from './vistas/ContractsView';
 
 
 
@@ -28,7 +28,7 @@ function App() {
             <Link to="/user">User</Link>
           </li>
           <li>
-            <Link to="/contratos">contratos</Link>
+            <Link to="/contracts">Contratos</Link>
           </li>
         </ul>
       </div>
@@ -36,7 +36,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomeView />} />
           <Route path="/user" element={<UserView data={data} />} />
-          <Route path="/contratos" element={<ContratosView/>} />
+          <Route path="/contracts" element={<ContractsView/>} />
         </Routes>
       </div>
       {/* <Componente

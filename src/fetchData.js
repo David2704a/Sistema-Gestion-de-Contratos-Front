@@ -1,5 +1,3 @@
-import React from 'react';
-
 function getSuspender(promise) {
     let status = 'pending';
     let response;
@@ -34,7 +32,7 @@ export function fetchData(url) {
         .then((response) => response.json())
         .then((data) => data);
 
-
+    
     return getSuspender(promise);
 }
 

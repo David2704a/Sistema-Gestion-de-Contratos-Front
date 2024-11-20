@@ -1,6 +1,12 @@
 .ContractsView {
     width: 100%;
     height: 100%;
-    background-color:#eff1f5;
+}
 
+.contractsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 30px;
+    background-color: blueviolet;
 }

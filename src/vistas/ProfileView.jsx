@@ -22,16 +22,16 @@ const ProfileView = () => {
                         <div className='text'>Johan David Bolaños</div>
                     </div>
                     <div className='info_item'>
-                        <div className='icon'><i class="fa-solid fa-user"></i></div>
-                        <div className='text'>Username</div>
+                        <div className='text'><span className='caption'>Email: </span><span className='value'>johanbolanos@gmail.com</span></div>
                     </div>
                     <div className='info_item'>
-                        <div className='icon'><i class="fa-solid fa-calendar-alt"></i></div>
-                        <div className='text'>Date of Birth</div>
+                        <div className='text'><span className='caption'>Birthdate: </span><span className='value'>27 of April of 2005</span></div>
                     </div>
                     <div className='info_item'>
-                        <div className='icon'><i class="fa-solid fa-map-marker-alt"></i></div>
-                        <div className='text'>Location</div>
+                        <div className='text'><span className='caption'>Phone: </span><span className='value'>+57 316 4964750</span></div>
+                    </div>
+                    <div className='info_item'>
+                        <div className='text'><span className='caption'>ID: </span><span className='value'>1058667409</span></div>
                     </div>
                 </div>
             </div>

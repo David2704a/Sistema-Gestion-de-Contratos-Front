@@ -27,14 +27,36 @@
 
 .container_info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr;
     background-color: #fff;
     width: 70%;
-    height: 200px;
+    max-height: 300px;
     margin: 20px 0 0 0;
     border-radius: 30px;
 }
 
-.container_info .data_info:nth-child(1) {
-    margin-bottom: 20px;
+.data_item .info_item:nth-child(1) {
+    padding: 10px 0 0 0 !important;
+    margin-bottom: 30px;
+    pointer-events: none;
+    color: var(--dark_purple);
+    text-transform: uppercase;
+    font-weight: 600;
 }
+
+.data_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.data_item .info_item {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.data_item .info_item .text .caption {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--light_purple);
+}
+

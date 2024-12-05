@@ -13,11 +13,11 @@ const UserView = ({data}) => {
         sortable: true,
       },
       {
-        name: 'Nombre',
+        name: 'Name',
         selector: row => row.name,
       },
       {
-        name: 'Correo',
+        name: 'Email',
         selector: row => row.email,
       },
     ];
@@ -26,6 +26,7 @@ const UserView = ({data}) => {
     return (
         <div>
             <h1>User View</h1>
+
 
             <Table columns={columns} data={datas} />
         

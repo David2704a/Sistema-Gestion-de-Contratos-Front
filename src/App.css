@@ -1,29 +1,90 @@
 .App {
-  background-color: #eff1f5;
+  background-color: #e4d6f8;
   box-sizing: border-box;
   display: flex;
-  width: 100%;
-  min-width: 800px;
-  border: 1px dotted crimson;
   height: 100vh;
 }
-
-.menu {
+/* 
+.menu_container {
+  background-color: #5c3d9a;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px dotted rgb(19, 46, 201);
-  min-width: 300px;
-  line-height: 1.5rem;
+  align-items: flex-start;
+  width: 220px;
+  padding-left: 30px;
 }
 
-.menu ul li {
+.profile-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.profile-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.menu_container ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: transparent !important;
 }
-.display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px dotted rgb(53, 220, 20);
+
+.menu_container ul.active {
+  margin-bottom: 10px;
   width: 100%;
 }
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+  position: relative;
+  border-top-left-radius: 26px;
+  border-bottom-left-radius: 26px;
+}
+
+.menu-item a:hover {
+  background-color: #7b56b5;
+}
+
+.menu-item a.active {
+  background-color: #e4d6f8;
+  font-weight: bold;
+  color: #7b56b5;
+  border-top-left-radius: 26px;
+  border-bottom-left-radius: 26px;
+  position: relative;
+}
+
+.menu-item a.active .badge {
+  display: none;
+}
+
+.badge {
+  background-color: #7b56b5;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.display {
+  flex: 1;
+  padding: 20px;
+  background-color: #e4d6f8;
+  overflow-y: auto;
+} */

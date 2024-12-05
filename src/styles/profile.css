@@ -1,0 +1,40 @@
+.profileView {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --dark_purple: #1e0039;
+    --light_purple: #604d9e;
+    --purple: #a27eb8;
+    --light_blue: #aaa2d8;
+    --white: #e4d6f8;
+  
+  }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    width: 97%;
+    height: 60px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 0 20px 0 20px;
+    color: var(--light_purple);
+}
+
+.container_info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: #fff;
+    width: 70%;
+    height: 200px;
+    margin: 20px 0 0 0;
+    border-radius: 30px;
+}
+
+.container_info .data_info:nth-child(1) {
+    margin-bottom: 20px;
+}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Suspense } from 'react';
 import Table from '../components/table';
+import '../styles/users.css'
+
 
 const UserView = ({data}) => {
 
@@ -24,7 +26,7 @@ const UserView = ({data}) => {
 
     const datas = data.users;
     return (
-        <div>
+        <div className='user_container'>
             <h1>User View</h1>
 
 

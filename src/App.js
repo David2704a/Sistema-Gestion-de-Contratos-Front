@@ -11,7 +11,7 @@ import ProfileView from './vistas/ProfileView';
 
 
 
-const apiData = fetchData('getUser')
+const apiData = fetchData('getUser', 'GET')
 function App() {
 
   // const {data, loading, error, handleCancelRequest} = useFetch('getUser');

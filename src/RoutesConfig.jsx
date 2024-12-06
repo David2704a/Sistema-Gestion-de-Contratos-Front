@@ -5,37 +5,29 @@ import LoginView from './vistas/LoginView';
 import HomeView from './vistas/HomeView';
 import UserView from './vistas/UserView';
 import ContractsView from './vistas/ContractsView';
+import Layout from './components/Layout';
+
 
 const RoutesConfig = () => (
-  <Routes>
-    {/* Ruta de Login (pública) */}
+    <Routes>
+    {/* Ruta pública: Login */}
     <Route path="/login" element={<LoginView />} />
 
-    {/* Rutas protegidas */}
-    <Route 
-      path="/home" 
+    {/* Rutas protegidas con Layout */}
+    <Route
+      path="/"
       element={
-        <PrivateRoute>
-          <HomeView />
+          <PrivateRoute>
+          <Layout />
         </PrivateRoute>
-      } 
-    />
-    <Route 
-      path="/user" 
-      element={
-        <PrivateRoute>
-          <UserView />
-        </PrivateRoute>
-      } 
-    />
-    <Route 
-      path="/contracts" 
-      element={
-        <PrivateRoute>
-          <ContractsView />
-        </PrivateRoute>
-      } 
-    />
+      }
+      >
+  
+      <Route path="home" element={<HomeView />} />
+      <Route path="users" element={<UserView  />} />
+      <Route path="contracts" element={<ContractsView />} />
+      {/* Agrega más rutas según sea necesario */}
+    </Route>
   </Routes>
 );
 

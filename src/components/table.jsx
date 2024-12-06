@@ -6,8 +6,6 @@ import DataTable from 'react-data-table-component';
 import { useState } from 'react';
 
 const Table = ({ columns = [], data = [] }) => {
-    console.log(columns, 'alooo2', data, 'oaos2');
-    
 
 const [records, setRecords] = useState(data); 
 const handleChange = (e) => {

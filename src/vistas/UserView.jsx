@@ -12,7 +12,6 @@ const UserView = () => {
     const obtenerDatos = async () => {
       try {
         const response = await fetchData('getUser');
-        console.log('Datos recibidos:', response); // Log para verificar datos
         setData(response);
       } catch (err) {
         console.error('Error al obtener datos:', err);

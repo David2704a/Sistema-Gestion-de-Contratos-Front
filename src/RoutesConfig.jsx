@@ -24,7 +24,11 @@ const RoutesConfig = () => (
       }
       >
   
-      <Route path="home" element={<HomeView />} />
+      <Route path="home" element={
+              <PrivateRoute>
+                <HomeView />
+              </PrivateRoute>
+        } />
       <Route path="users" element={<UserView  />} />
       <Route path="contracts" element={<ContractsView />} />
       <Route path="profile" element={<ProfileView />} />

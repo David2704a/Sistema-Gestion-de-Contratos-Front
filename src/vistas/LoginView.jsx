@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
+import { useAuth } from '../contexts/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import { fetchData } from '../fetchData';
 
 const LoginView = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { login } = useAuth();  
+  const navigate  = useNavigate();
 
   const handleLogin = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await response.json();
-    if (data.token) {
-      localStorage.setItem('token', data.token); 
-      window.location.href = '/home'; 
+    const response = await fetchData('login', 'POST', {'email': email, 'password': password});
+      
+    if (response.token) {
+      login(response.token);
+      navigate('/home'); 
     } else {
       alert('Credenciales incorrectas');
     }
   };
+
 
   return (
     <div>

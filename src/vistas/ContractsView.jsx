@@ -1,27 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/contracts.css'
 import Title from '../components/title';
 import Table from '../components/table';
+import { fetchData } from '../fetchData';
 const ContratosView = () => {
 
-    const columns = [
-      
-    ];
+    const [formData, setFormData] = useState({
+        nombre: '',
+        email: '',
+    });
 
-    const data = [
-       
-    ];
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetchData('guardarDatos', 'POST', formData);
+            console.log('Datos enviados con éxito:', response);
+        } catch (error) {
+            console.error('Error al enviar los datos:', error);
+        }
+    };
+
     return (
-        <div className={'ContractsView'}>
-            <Title title="CONTRATOS"></Title>
-
-            <div className="contractsContainer">
-                <h1>alo</h1>
-
-                <Table columns={columns} data={data} />
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="nombre">Nombre:</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
+                />
             </div>
-        </div>
+            <div>
+                <label htmlFor="email">Correo electrónico:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
     );
+
 }
 
 export default ContratosView;

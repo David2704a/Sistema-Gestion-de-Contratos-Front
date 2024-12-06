@@ -1,59 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/table';
+import '../styles/users.css';
+import { fetchData } from '../fetchData';
 
 const UserView = () => {
-  // Estados para manejar datos, errores y estado de carga
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Cargar datos desde la API
   useEffect(() => {
-    const loadData = async () => {
+    const obtenerDatos = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/getUser'); // Realiza la solicitud
-        const result = await response.json(); // Convierte la respuesta a JSON
-        setData(result); // Almacena los datos en el estado
+        const response = await fetchData('getUser');
+        console.log('Datos recibidos:', response); // Log para verificar datos
+        setData(response);
       } catch (err) {
-        setError(err.message || 'Error al cargar los datos'); // Manejo de errores
+        console.error('Error al obtener datos:', err);
+        setError(err.message || 'Error al cargar los datos');
       } finally {
-        setLoading(false); // Finaliza el estado de carga
+        setLoading(false);
       }
     };
 
-    loadData();
+    obtenerDatos();
   }, []);
 
-  // Define las columnas para la tabla
   const columns = [
-    {
-      name: 'ID',
-      selector: (row) => row.id,
-      sortable: true,
-    },
-    {
-      name: 'Name',
-      selector: (row) => row.name,
-    },
-    {
-      name: 'Email',
-      selector: (row) => row.email,
-    },
+    { name: 'ID', selector: (row) => row.id, sortable: true },
+    { name: 'Name', selector: (row) => row.name },
+    { name: 'Email', selector: (row) => row.email },
   ];
 
-  // Renderizado condicional basado en el estado
-  if (loading) {
-    return <div>Loading...</div>; // Muestra un mensaje de carga
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>; // Muestra un mensaje de error
-  }
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
-    <div>
+    <div className='user_container'>
       <h1>User View</h1>
-      <Table columns={columns} data={data?.users || []} /> {/* Muestra la tabla solo si hay datos */}
+      <Table columns={columns} data={data?.users || []} />
     </div>
   );
 };

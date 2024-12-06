@@ -6,6 +6,7 @@ import HomeView from './vistas/HomeView';
 import UserView from './vistas/UserView';
 import ContractsView from './vistas/ContractsView';
 import Layout from './components/Layout';
+import ProfileView from './vistas/ProfileView';
 
 
 const RoutesConfig = () => (
@@ -26,6 +27,7 @@ const RoutesConfig = () => (
       <Route path="home" element={<HomeView />} />
       <Route path="users" element={<UserView  />} />
       <Route path="contracts" element={<ContractsView />} />
+      <Route path="profile" element={<ProfileView />} />
       {/* Agrega más rutas según sea necesario */}
     </Route>
   </Routes>

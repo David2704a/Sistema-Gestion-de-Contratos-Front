@@ -1,90 +1,164 @@
 .App {
+  font-family: "Ubuntu", sans-serif;
   background-color: #e4d6f8;
   box-sizing: border-box;
   display: flex;
   height: 100vh;
 }
-/* 
-.menu_container {
-  background-color: #5c3d9a;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 220px;
-  padding-left: 30px;
-}
-
-.profile-section {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.icon {
-  font-size: 24px;
-  margin-right: 10px;
-}
-
-.profile-text {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.menu_container ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  background-color: transparent !important;
-}
-
-.menu_container ul.active {
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.menu-item a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
-  position: relative;
-  border-top-left-radius: 26px;
-  border-bottom-left-radius: 26px;
-}
-
-.menu-item a:hover {
-  background-color: #7b56b5;
-}
-
-.menu-item a.active {
-  background-color: #e4d6f8;
-  font-weight: bold;
-  color: #7b56b5;
-  border-top-left-radius: 26px;
-  border-bottom-left-radius: 26px;
-  position: relative;
-}
-
-.menu-item a.active .badge {
-  display: none;
-}
-
-.badge {
-  background-color: #7b56b5;
-  border-radius: 50%;
-  padding: 2px 8px;
-  font-size: 12px;
-}
 
 .display {
   flex: 1;
-  padding: 20px;
+  padding: 0 50px 0 50px;
   background-color: #e4d6f8;
   overflow-y: auto;
-} */
+} 
+
+:root {
+  --dark_purple: #1e0039;
+  --light_purple: #604d9e;
+  --purple: #a27eb8;
+  --light_blue: #aaa2d8;
+  --white: #e4d6f8;
+
+}
+
+.menu-container {
+  position: relative;
+  width: 250px;
+}
+
+.navigation {
+  position: fixed;
+  width: 250px;
+  height: 100%;
+  background-color: var(--dark_purple);
+  border-left:  10px solid var(--dark_purple);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover {
+  background-color: var(--white);
+  
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--light_blue);
+}
+
+.navigation ul li a.active {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--dark_purple);
+  background-color: var(--white);
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover a {
+  color: var(--dark_purple)
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon i {
+  font-size: 1.5rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation ul li:hover a::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li a.active::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li a.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}

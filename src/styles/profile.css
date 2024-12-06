@@ -1,0 +1,62 @@
+.profileView {
+    width: 100%;
+    height: 100%;
+}
+
+:root {
+    --dark_purple: #1e0039;
+    --light_purple: #604d9e;
+    --purple: #a27eb8;
+    --light_blue: #aaa2d8;
+    --white: #e4d6f8;
+  
+  }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    width: 97%;
+    height: 60px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    padding: 0 20px 0 20px;
+    color: var(--light_purple);
+}
+
+.container_info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: #fff;
+    width: 70%;
+    max-height: 300px;
+    margin: 20px 0 0 0;
+    border-radius: 30px;
+}
+
+.data_item .info_item:nth-child(1) {
+    padding: 10px 0 0 0 !important;
+    margin-bottom: 30px;
+    pointer-events: none;
+    color: var(--dark_purple);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.data_item {
+    display: flex;
+    flex-direction: column;
+}
+
+.data_item .info_item {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.data_item .info_item .text .caption {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--light_purple);
+}
+

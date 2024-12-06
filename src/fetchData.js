@@ -1,38 +1,24 @@
-function getSuspender(promise) {
-    let status = 'pending';
-    let response;
+export async function fetchData(url, method = 'GET', data = null) {
+  const options = {
+    method: method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
 
-    const suspender = promise.then(
-        (res) => {
-            status = 'success';
-            response = res;
-        },
-        (err) => {
-            status = 'error';
-            response = err;
-        }
-    );
+  if (method === 'POST' && data) {
+    options.body = JSON.stringify(data);
+  }
 
-    const read = () => {
-        switch (status) {
-            case 'pending':
-                throw suspender;
-            case 'error':
-                throw response
-            default:
-                return response
-        }
+  try {
+    const response = await fetch(`http://localhost:8000/api/${url}`, options);
+    if (!response.ok) {
+      throw new Error(`Error en la solicitud: ${response.statusText}`);
     }
-
-    return { read };
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('Error al hacer la solicitud:', error);
+    throw error;
+  }
 }
-
-export function fetchData(url) {
-    const promise = fetch(`http://localhost:8000/api/${url}`)
-        .then((response) => response.json())
-        .then((data) => data);
-
-    
-    return getSuspender(promise);
-}
-
